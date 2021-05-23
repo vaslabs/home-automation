@@ -1,6 +1,9 @@
 const { Consumer } = require('sqs-consumer');
 const { exec } = require("child_process");
 
+const PC_MAC_ADDRESS = process.env.PC_MAC_ADDRESS
+const wakeOnLanCommand = PC_MAC_ADDRESS ? `wakeonlan ${PC_MAC_ADDRESS}` : "echo NoOp"
+
 const mapping = {
   "StartOvercooked": {message: "Starting overcooked", id: "1243830"},
   "StartCantDriveThis": {message: "Starting can't drive this", id: "466980"},
@@ -8,7 +11,9 @@ const mapping = {
   "StartCyberpunk": {message: "Starting cyberpunk", id: "1091500"},
   "StartPlagueSimulation": {message: "Starting plague simulation", id: "246620"},
   "StartPlagueTaleInnocence": {message: "Starting plague tale: innocence", id: "752590"},
-  "StartUltimateChickenHorse": {message: "Starting ultimate chicket horse", id: "386940"}
+  "StartUltimateChickenHorse": {message: "Starting ultimate chicket horse", id: "386940"},
+  "TurnOnPc": {command: wakeOnLanCommand},
+  "TurnOffPc": {command: "poweroff"}
 }
 
 const app = Consumer.create({
