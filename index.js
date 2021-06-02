@@ -9,7 +9,7 @@ const mapping = {
   "TurnOnPc": {command: wakeOnLanCommand},
   "TurnOffPc": {command: "poweroff"},
   "RestartSteam": {command: RESTART_STEAM_COMMAND},
-  "RestartPc": {command: "reboot"}
+  "RestartPC": {command: "reboot"}
 }
 
 const app = Consumer.create({
