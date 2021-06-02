@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Home service
+Exec=../../.local/bin/home_service.sh
+GenericName=home-service
+Comment=Accept commands from Alexa for gaming automation tasks
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
