@@ -15,13 +15,13 @@ function start_ds4drv() {
 }
 
 function find_first_gamepad() {
-    cat $HOME/.ds4drv | grep -oE '/dev/input/event[0-9]+' | head -n1
+    cat $HOME/.ds4drv | grep -oE 'event[0-9]+' | head -n1
 }
 
 function find_second_gamepad() {
-    cat $HOME/.ds4drv | grep -oE '/dev/input/event[0-9]+' | head -n2
+    cat $HOME/.ds4drv | grep -oE 'event[0-9]+' | tail -n1
 }
 
 function stop_ds4drv() {
-	kill $(pgrep ds4drv)
+	kill $(pgrep ds4drv) && rm $HOME/.ds4drv
 }
