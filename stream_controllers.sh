@@ -10,5 +10,5 @@ gamepad1=$(find_first_gamepad)
 gamepad2=$(find_second_gamepad)
 echo $gamepad1
 echo $gamepad2
-ssh $CONTROLLER_PROXY sudo cat /dev/input/event3 >/dev/input/"$gamepad1" &
-ssh $CONTROLLER_PROXY sudo cat /dev/input/event4 >/dev/input/"$gamepad2" &
+ssh $CONTROLLER_PROXY sudo cat /dev/input/event4 >/dev/input/"$gamepad1" &
+ssh $CONTROLLER_PROXY sudo cat /dev/input/event5 >/dev/input/"$gamepad2" &
