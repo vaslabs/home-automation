@@ -61,7 +61,8 @@ connect_two_players() {
 
 connect_four_players() {
     if [ -f $HOME/.ds4drv_4players ]; then
-        stop_ds4drv $NEXT_TWO_CONTROLLERS
+        stop_ds4drv
+        connect_two_players
     fi
     start_ds4drv $NEXT_TWO_CONTROLLERS &
     sleep 3
