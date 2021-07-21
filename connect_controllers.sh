@@ -34,10 +34,10 @@ function find_fourth_gamepad() {
 
 function stop_ds4drv() {
 	kill $(pgrep ds4drv) && {
-        if [[ -f $NEXT_TWO_CONTROLLERS ]]; then
+        if [[ -f $HOME/$NEXT_TWO_CONTROLLERS ]]; then
             rm $HOME/$NEXT_TWO_CONTROLLERS
         fi
-        if [[ -f $FIRST_TWO_CONTROLLERS ]]; then
+        if [[ -f $HOME/$FIRST_TWO_CONTROLLERS ]]; then
             rm $HOME/$FIRST_TWO_CONTROLLERS
         fi
     }
