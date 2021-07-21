@@ -1,3 +1,3 @@
 #!/bin/bash
-source find_game_proxy.sh
+source connect_controllers.sh
 stop_ds4drv

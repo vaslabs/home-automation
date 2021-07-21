@@ -63,7 +63,7 @@ connect_four_players() {
     if [ -f $HOME/.ds4drv_4players ]; then
         stop_ds4drv $NEXT_TWO_CONTROLLERS
     fi
-    start_ds4drv &
+    start_ds4drv $NEXT_TWO_CONTROLLERS &
     sleep 3
     CONTROLLER_PROXY=$(ssh_proxy)
     gamepad1=$(find_third_gamepad)
