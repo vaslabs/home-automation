@@ -1,3 +1,5 @@
+source find_game_proxy.sh
+
 FIRST_TWO_CONTROLLERS=.ds4drv
 NEXT_TWO_CONTROLLERS=.ds4drv_4players
 
@@ -31,17 +33,18 @@ function find_fourth_gamepad() {
 }
 
 function stop_ds4drv() {
-	if [[ -z $1 ]]; then
-		ds4_drv_file=$FIRST_TWO_CONTROLLERS
-	else
-		ds4_drv_file=$1
-	fi
-	kill $(pgrep ds4drv) && rm $HOME/$ds4_drv_file
+	kill $(pgrep ds4drv) && {
+        if [[ -f $NEXT_TWO_CONTROLLERS ]]; then
+            rm $HOME/$NEXT_TWO_CONTROLLERS
+        fi
+        if [[ -f $FIRST_TWO_CONTROLLERS ]]; then
+            rm $HOME/$FIRST_TWO_CONTROLLERS
+        fi
+    }
+    
 }
 
 connect_two_players() {
-    source find_game_proxy.sh
-
     if [ -f $HOME/$FIRST_TWO_CONTROLLERS ]; then
         stop_ds4drv
     fi
@@ -52,15 +55,13 @@ connect_two_players() {
     gamepad2=$(find_second_gamepad)
     echo $gamepad1
     echo $gamepad2
-    ssh $CONTROLLER_PROXY sudo cat /dev/input/event3 >/dev/input/"$gamepad1" &
-    ssh $CONTROLLER_PROXY sudo cat /dev/input/event4 >/dev/input/"$gamepad2" &
+    ssh $CONTROLLER_PROXY sudo cat /dev/input/event4 >/dev/input/"$gamepad1" &
+    ssh $CONTROLLER_PROXY sudo cat /dev/input/event5 >/dev/input/"$gamepad2" &
 }
 
 connect_four_players() {
-    source find_game_proxy.sh
-
     if [ -f $HOME/.ds4drv_4players ]; then
-        stop_ds4drv .ds4drv_4players
+        stop_ds4drv $NEXT_TWO_CONTROLLERS
     fi
     start_ds4drv &
     sleep 3
@@ -69,6 +70,6 @@ connect_four_players() {
     gamepad2=$(find_fourth_gamepad)
     echo $gamepad1
     echo $gamepad2
-    ssh $CONTROLLER_PROXY sudo cat /dev/input/event3 >/dev/input/"$gamepad1" &
-    ssh $CONTROLLER_PROXY sudo cat /dev/input/event4 >/dev/input/"$gamepad2" &
+    ssh $CONTROLLER_PROXY sudo cat /dev/input/event6 >/dev/input/"$gamepad1" &
+    ssh $CONTROLLER_PROXY sudo cat /dev/input/event7 >/dev/input/"$gamepad2" &
 }
