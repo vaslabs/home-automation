@@ -34,10 +34,10 @@ function find_fourth_gamepad() {
 
 function stop_ds4drv() {
 	kill $(pgrep ds4drv) && {
-        if [[ -f $NEXT_TWO_CONTROLLERS ]]; then
+        if [[ -f $HOME/$NEXT_TWO_CONTROLLERS ]]; then
             rm $HOME/$NEXT_TWO_CONTROLLERS
         fi
-        if [[ -f $FIRST_TWO_CONTROLLERS ]]; then
+        if [[ -f $HOME/$FIRST_TWO_CONTROLLERS ]]; then
             rm $HOME/$FIRST_TWO_CONTROLLERS
         fi
     }
@@ -64,7 +64,7 @@ connect_four_players() {
         stop_ds4drv
         connect_two_players
     fi
-    start_ds4drv &
+    start_ds4drv $NEXT_TWO_CONTROLLERS &
     sleep 3
     CONTROLLER_PROXY=$(ssh_proxy)
     gamepad1=$(find_third_gamepad)
