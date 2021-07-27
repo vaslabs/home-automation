@@ -12,7 +12,7 @@ find_latest_update() {
 
 is_up_to_date() {
     proton_ge=$(basename $1 .sha512sum)
-    [ -d "$STEAM_COMPATIBILITY_DIR/proton_ge" ]
+    [ -d "$STEAM_COMPATIBILITY_DIR/$proton_ge" ]
 }
 
 download_new_release() {
@@ -22,7 +22,7 @@ download_new_release() {
     shasum_file=$(cat $workdir/latest_update | grep .sha512sum)
     is_up_to_date $shasum_file && {
         echo "Proton GE is up to date"
-        cat $workdir/
+        cat $workdir/latest_update
         return 0
     } || echo "Will install new version of proton ge"
 
