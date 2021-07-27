@@ -7,6 +7,7 @@ const QUEUE_URL = process.env.QUEUE_URL
 const RESTART_STEAM_COMMAND = PC_MAC_ADDRESS ? "echo NoOp" : "/usr/bin/kill --verbose --timeout 3000 TERM --timeout 7000 KILL --signal QUIT $(pgrep steam | head -n1) && sleep 5 && DRI_PRIME=1 steam"
 const START_STEAM_COMMAND = PC_MAC_ADDRESS ? "echo NoOp" : "DRI_PRIME=1 steam"
 const forward_controllers_command = PC_MAC_ADDRESS ? "echo NoOp" : "./stream_controllers.sh"
+const add_two_players_command = PC_MAC_ADDRESS ? "echo NoOp" : "./stream_controllers.sh more"
 const stop_controllers_command = PC_MAC_ADDRESS ? "echo NoOp" : "./stop_controller_streaming.sh"
 const mapping = {
   "TurnOnPc": {command: wakeOnLanCommand},
@@ -15,6 +16,7 @@ const mapping = {
   "StartSteam": {command: START_STEAM_COMMAND},
   "RestartPC": {command: "reboot"},
   "ForwardControllers": {command: forward_controllers_command},
+  "AddTwoPlayers": {command: add_two_players_command},
   "StopControllerForwarding": {command: stop_controllers_command}
 }
 

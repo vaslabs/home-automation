@@ -9,19 +9,3 @@ function gamepad_proxy() {
 function ssh_proxy() {
 	echo ubuntu@$(gamepad_proxy)
 }
-
-function start_ds4drv() {
-	ds4drv --emulate-xpad-wireless --next-controller --emulate-xpad-wireless --hidraw >$HOME/.ds4drv
-}
-
-function find_first_gamepad() {
-    cat $HOME/.ds4drv | grep -oE 'event[0-9]+' | head -n1
-}
-
-function find_second_gamepad() {
-    cat $HOME/.ds4drv | grep -oE 'event[0-9]+' | tail -n1
-}
-
-function stop_ds4drv() {
-	kill $(pgrep ds4drv) && rm $HOME/.ds4drv
-}
