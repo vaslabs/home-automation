@@ -23,7 +23,7 @@ download_new_release() {
     is_up_to_date $shasum_file && {
         echo "Proton GE is up to date"
         cat $workdir/
-        exit 0
+        return 0
     } || echo "Will install new version of proton ge"
 
     tar_file=$(cat $workdir/latest_update | grep .tar.gz)
@@ -33,14 +33,15 @@ download_new_release() {
     wget $shasum_file
     wget $tar_file
 
-    downloaded_sha=$(sha512sum $workdir/$target_name)
-    expected_sha=$(cat $workdir/$sha_target_name)
+    downloaded_sha=$(sha512sum $target_name)
+    expected_sha=$(cat $sha_target_name)
 
     [ "$downloaded_sha" = "$expected_sha" ] || {
         echo "$downloaded_sha" dows not match expected sha512sum $expected_sha
-        exit 1
+        return 1
     }
 
+    ls
     tar -xvf $target_name
     directory_name=$(basename $target_name .tar.gz)
     mv $directory_name $STEAM_COMPATIBILITY_DIR/$directory_name
