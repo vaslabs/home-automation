@@ -51,3 +51,7 @@ Assuming your Alexa skill has all the intents the [code](https://github.com/vasl
 ### Remote play does not connect
 
 If your devices are connected to the internet this can happen due to the gaming PC being frozen or steam being unresponsive. On the first case you need to have smart plugs to turn them off and force a power down. For the second case you can have a restart steam intent (supported in the code)
+
+
+## Why is this so difficult?
+This is my personal setup to play games when I travel. I'm working on a portable solution but on my own pace.
