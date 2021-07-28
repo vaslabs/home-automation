@@ -45,8 +45,10 @@ Assuming your Alexa skill has all the intents the [code](https://github.com/vasl
 7. Tell alexa to connect controllers
 8. Wait for the xbox 360 notifications to appear
 9. Make sure your 2 controllers work
-10. Connect 2 more controllers
-11. Tell alexa to add two more players (trigger the add 2 players intent)
+10. Connect 2 more virtual controllers from your physicall device
+11. Connect your additional controllers via bluetooth.
+12. Tell alexa to add two more players (trigger the add 2 players intent)
+13. Wait until 2 more notifications appear and tests that your new controllers work.
 
 ### Remote play does not connect
 
