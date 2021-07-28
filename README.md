@@ -8,7 +8,7 @@ contain alexa intents.
 Use the provided .config/autostart and .local/bin to setup your startup.
 
 
-### AWS with Raspberry Pi setup
+#### AWS with Raspberry Pi setup
 
 - Create an ec2 instance
 - Create two SQS queues (one for the gaming pc, one for the raspberry pi)
