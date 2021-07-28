@@ -1,6 +1,7 @@
 ## How to start
 
 Use this guide if you know what you are doing. You need an AWS account and basic knowledge around IAM, SQS, EC2 and creating Alexa skills.
+Basic bash scripting skills, how to ssh, configure ssh access and know some javascript.
 
 ### Setup
 If you are on gnome you can add a .local/autostart entry to get the script running on login.
