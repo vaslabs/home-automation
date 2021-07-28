@@ -13,7 +13,8 @@ Use the provided .config/autostart and .local/bin to setup your startup.
 
 #### AWS with Raspberry Pi setup
 
-- Create an ec2 instance running ubuntu and install `ds4drv`
+- Create an ec2 instance running ubuntu and install `ds4drv`. 
+- Configure ssh access to the ec2 instance by adding your machine's public key to the `.ssh/authorized_keys`
 - Create two SQS queues (one for the gaming pc, one for the raspberry pi)
 - Create a lambda function that forwards alexa events to the sqs queue. [Example](https://www.playingplaces.com/posts/implementation/#building-the-custom-skill)
 - Create an alexa skill and connect it to the lambda function
@@ -34,7 +35,7 @@ Assuming your Alexa skill has all the intents the [code](https://github.com/vasl
 
 ### Sequence for adding 4 players with dual shock 4 controllers
 
-1. Start ds4drv on your machine you have physical access to (the client).
+1. Start ds4drv on your machine you have physical access to (the client) to create 4 devices. [ps4_as_xbox_four_players](https://github.com/vaslabs/home-automation/blob/master/.bash_aliases)
 2. On the gaming PC, start ds4drv
 3. Make sure ds4drv is also running on the ec2 instance and maps the controllers to /dev/input/event4 and /dev/input/event5 (if not, adapt the code, these values are hardcoded in the shell scripts).
 4. Connect 2 virtual controllers on your client to the ec2. Guidance [here](https://github.com/vaslabs/home-automation/blob/master/.bash_aliases)
