@@ -1,0 +1,193 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "home service",
+            "intents": [
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "TurnOnPc",
+                    "slots": [],
+                    "samples": [
+                        "I want to play some games",
+                        "turn on gaming computer",
+                        "turn on gaming pc"
+                    ]
+                },
+                {
+                    "name": "TurnOffPc",
+                    "slots": [],
+                    "samples": [
+                        "shut down gaming pc",
+                        "turn off the pc",
+                        "no more video games for today"
+                    ]
+                },
+                {
+                    "name": "RestartSteam",
+                    "slots": [],
+                    "samples": [
+                        "restart steam",
+                        "steam is not responding",
+                        "steam is frozen"
+                    ]
+                },
+                {
+                    "name": "RestartPC",
+                    "slots": [],
+                    "samples": [
+                        "Reboot gaming computer",
+                        "Restart gaming computer",
+                        "The gaming computer is not responding"
+                    ]
+                },
+                {
+                    "name": "StartSteam",
+                    "slots": [],
+                    "samples": [
+                        "Start steam",
+                        "Launch steam"
+                    ]
+                },
+                {
+                    "name": "ForwardControllers",
+                    "slots": [],
+                    "samples": [
+                        "stream controllers",
+                        "stream gamepads",
+                        "forward controllers",
+                        "connect controllers",
+                        "connect gamepads",
+                        "forward gamepads"
+                    ]
+                },
+                {
+                    "name": "StopControllerForwarding",
+                    "slots": [],
+                    "samples": [
+                        "disconnect gamepads",
+                        "disconnect controllers",
+                        "stop controllers",
+                        "stop gamepads"
+                    ]
+                },
+                {
+                    "name": "AddTwoPlayers",
+                    "slots": [],
+                    "samples": [
+                        "add two more controllers",
+                        "add two more players"
+                    ]
+                },
+                {
+                    "name": "UpdateGEProton",
+                    "slots": [],
+                    "samples": [
+                        "update proton",
+                        "update glorious eggroll proton",
+                        "update custom proton"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "TurnOnPc",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1083614543570"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "TurnOffPc",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.339342904515"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "RestartSteam",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1571956912808"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "RestartPC",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.74673115658"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "StopControllerForwarding",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1441930702105"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.1083614543570",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "The house party protocol?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.339342904515",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Found something better to do?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1571956912808",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Shall I issue a command to restart steam now?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.74673115658",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please confirm rebooting the gaming computer"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1441930702105",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Confirm disconnecting gamepads"
+                    }
+                ]
+            }
+        ]
+    }
+}
