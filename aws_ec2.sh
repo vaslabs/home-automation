@@ -29,6 +29,12 @@ function run_gameped_instance() {
     instance_id=$1
     aws ec2 start-instances --instance-ids $instance_id
     wait_for_instance_state $instance_id running
+    update_known_hosts
+}
+
+function update_known_hosts() {
+    source ./find_game_proxy.sh
+    ssh-keyscan -H $(gamepad_proxy) >>~/.ssh/known_hosts
 }
 
 function wait_for_instance_state() {
