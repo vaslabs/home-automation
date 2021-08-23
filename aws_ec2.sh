@@ -22,7 +22,7 @@ function instance_id() {
 }
 
 function spin_up_gamepad_instance() {
-    echo "Stub!!!"
+    aws ec2 run-instances --launch-template LaunchTemplateName=gamepads --dry-run
 }
 
 function run_gameped_instance() {
