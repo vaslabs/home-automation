@@ -12,17 +12,17 @@ function find_controller_host() {
 
 function connect_first_controller {
 
-  cat /dev/input/event$1 | ssh $(ssh_proxy) sudo tee -a /dev/input/event4 >/dev/null
+  cat /dev/input/event$1 | ssh $(find_controller_host) sudo tee -a /dev/input/event4 >/dev/null
 }
 
 function connect_second_controller {
-  cat /dev/input/event$1 | ssh ubuntu@$(ssh_proxy) sudo tee -a /dev/input/event5 >/dev/null
+  cat /dev/input/event$1 | ssh $(find_controller_host) sudo tee -a /dev/input/event5 >/dev/null
 }
 
 function connect_third_controller {
-  cat /dev/input/event$1 | ssh ubuntu@$(ssh_proxy) sudo tee -a /dev/input/event6 >/dev/null
+  cat /dev/input/event$1 | ssh $(find_controller_host) sudo tee -a /dev/input/event6 >/dev/null
 }
 
 function connect_fourth_controller {
-  cat /dev/input/event$1 | ssh $(ssh_proxy) sudo tee -a /dev/input/event7 >/dev/null
+  cat /dev/input/event$1 | ssh $(find_controller_host) sudo tee -a /dev/input/event7 >/dev/null
 }
